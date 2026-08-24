@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+)
 
 // ============================================================
 // GO PLAYGROUND
@@ -27,7 +30,7 @@ import "fmt"
 
 func main() {
 	// Ändert diese Zahl, um eine andere Aufgabe zu starten.
-	exercise := 1
+	exercise := 11
 
 	switch exercise {
 	case 1:
@@ -116,7 +119,16 @@ func aufgabe01() {
 	// Kopiert die Code-Schnipsel von oben hier hinein
 	// und bringt sie in die richtige Reihenfolge.
 
-	fmt.Println("Aufgabe 1: Sortiert die Code-Schnipsel aus den Kommentaren!")
+	name := "Max"
+	fmt.Println("Hallo", name+"!")
+	apples := 3
+	fmt.Println("Du hast", apples, "Äpfel.")
+	apples = apples + 2
+	fmt.Println("Nach dem Einkauf hast du", apples, "Äpfel.")
+	apples--
+	fmt.Println("Du hattest Hunger. Es sind", apples, "Äpfel übrig.")
+
+	// fmt.Println("Aufgabe 1: Sortiert die Code-Schnipsel aus den Kommentaren!")
 }
 
 // ============================================================
@@ -127,11 +139,11 @@ func aufgabe01() {
 //
 // Fragen:
 // 1. Was wird ausgegeben?
-// 2. Was passiert, wenn x auf 10 geändert wird?
+// 2. Was passiert, wenn x auf 10 geändert wird? => Ausgabe 12
 // 3. Was ist der Unterschied zwischen
-//      fmt.Println(x + y)
+//      fmt.Println(x + y) => Variablen werden verrechnet
 //    und
-//      fmt.Println("x + y")
+//      fmt.Println("x + y") = Nur der String wird ausgegeben
 //
 // BONUS:
 // Fügt eine Ausgabe für x*y und x-y hinzu.
@@ -140,8 +152,12 @@ func aufgabe02() {
 	x := 5
 	y := 2
 
-	fmt.Println(x + y)
-	fmt.Println("x + y")
+	fmt.Println("x + y:") //Ausgabe: "x + y"
+	fmt.Println(x + y)    // Ausgabe: "7"
+	fmt.Println("x - y:") //Ausgabe: "x + y"
+	fmt.Println(x - y)    // Ausgabe: "7"
+	fmt.Println("x * y:") //Ausgabe: "x + y"
+	fmt.Println(x * y)    // Ausgabe: "7"
 }
 
 // ============================================================
@@ -161,11 +177,15 @@ func aufgabe02() {
 // und gebt auch euren Wohn- oder Studienort aus.
 
 func aufgabe03() {
-	name := "Max"
-	alter := 18
+	name := "Rieko"
+	alter := 19
+	var stadt string = "Heidelberg"
 
 	fmt.Println("Hallo", name)
 	fmt.Println("Du bist", alter, "Jahre alt.")
+	fmt.Println("Nächstes Jahr bist du", alter+1, "Jahre alt.")
+	fmt.Println("In 10 Jahren bist du", alter+10, "Jahre alt.")
+	fmt.Println("Du befindest dich in", stadt)
 
 	// TODO: Alter im nächsten Jahr ausgeben
 	// TODO: Alter in 10 Jahren ausgeben
@@ -178,17 +198,17 @@ func aufgabe03() {
 // Schaut euch den Code an, ohne ihn zuerst auszuführen.
 //
 // Fragen:
-// - Welchen Wert hat apples am Anfang?
-// - Was passiert in der zweiten Zeile?
-// - Was wird ausgegeben?
-// - Was könnte := bedeuten?
-// - Was könnte = bedeuten?
+// - Welchen Wert hat apples am Anfang? => 5
+// - Was passiert in der zweiten Zeile? => zwei werden zu apples addiert
+// - Was wird ausgegeben? => 7
+// - Was könnte := bedeuten? => Shortcut mit initialisierung und ohne expliziten Typ
+// - Was könnte = bedeuten? => Assignment
 //
 // Experiment:
 // Ändert +2 zu:
-// - +10
-// - -1
-// - *2
+// - +10 => 15
+// - -1 => 4
+// - *2 => 10
 //
 // BONUS:
 // Legt zusätzlich eine Variable "bananas" an.
@@ -197,11 +217,15 @@ func aufgabe03() {
 func aufgabe04() {
 	apples := 5
 	apples = apples + 2
+	var bananas int = 4
 
 	fmt.Println("Äpfel:", apples)
+	fmt.Println("Bananen:", bananas)
+	fmt.Println("Freche Früchtchen:", apples+bananas)
+
 }
 
-// ============================================================
+// ============================================================s
 // AUFGABE 5 – BUG HUNT
 // ============================================================
 //
@@ -216,29 +240,30 @@ func aufgabe04() {
 // 4. Fehler beheben
 //
 // Fehler 1:
-// fmt.Println("Hallo Welt!)
+// fmt.Println("Hallo Welt!)=>
+// fmt.Println("Hallo Welt!")
 //
 // Fehler 2:
-// fmt.Prinln("Hallo")
+// fmt.Prinln("Hallo") =>
+// fmt.Println("Hallo")
 //
 // Fehler 3:
-// fmt.Println(unbekannt)
+// fmt.Println(unbekannt) => Variable belegen
 //
 // Fehler 4:
 // x := 5
-// x := 10
+// x := 10 => Doppelpunkt weg
 // fmt.Println(x)
 //
 // Fehler 5:
 // fmt.Println("Hallo")
-// fmt.Println("Welt"
+// fmt.Println("Welt" => Klammer dazu
 //
 // BONUS:
 // Baut selbst einen kleinen Fehler ein
 // und lasst euren Sitznachbarn herausfinden, was kaputt ist.
 
 func aufgabe05() {
-	fmt.Println("Bug Hunt!")
 
 	// Kopiert hier jeweils EINEN kaputten Schnipsel hinein.
 }
@@ -251,10 +276,10 @@ func aufgabe05() {
 //
 // Schreibt euch nach jeder Zeile den Wert von x auf:
 //
-//     x := 3
-//     x = x + 2
-//     x = x * 4
-//     x = x - 5
+//     x := 3      => 3
+//     x = x + 2   => 5
+//     x = x * 4   => 20
+//     x = x - 5   => 15
 //
 // Was wird am Ende ausgegeben?
 //
@@ -267,8 +292,8 @@ func aufgabe05() {
 func aufgabe06() {
 	x := 3
 	x = x + 2
-	x = x * 4
-	x = x - 5
+	x = x * 9
+	x = x - 3
 
 	fmt.Println("x =", x)
 }
@@ -286,8 +311,8 @@ func aufgabe06() {
 // - 25
 //
 // Fragen:
-// - Wann wird "volljährig" ausgegeben?
-// - Was bedeutet >= vermutlich?
+// - Wann wird "volljährig" ausgegeben? Wenn größer oder gleich als 18
+// - Was bedeutet >= vermutlich? größer oder gleich
 //
 // TODO:
 // Ändert den Text in eigene Formulierungen.
@@ -300,12 +325,14 @@ func aufgabe06() {
 // Ihr könnt dafür nach "Go else if" suchen oder experimentieren.
 
 func aufgabe07() {
-	alter := 18
+	alter := 15
 
 	if alter >= 18 {
 		fmt.Println("Du bist volljährig.")
+	} else if alter >= 16 {
+		fmt.Println("Du bist noch minderjährig.")
 	} else {
-		fmt.Println("Du bist noch nicht volljährig.")
+		fmt.Println("Du bist noch sehr minderjährig.")
 	}
 }
 
@@ -338,8 +365,10 @@ func aufgabe08() {
 
 	if number > 5 {
 		fmt.Println("Die Zahl ist groß!")
+	} else if number == 5 {
+		fmt.Println("Die Zahl ist genau fünf")
 	} else {
-		fmt.Println("Die Zahl ist klein oder gleich 5!")
+		fmt.Println("Die Zahl ist klein!")
 	}
 
 	// TODO: Genau 5 getrennt behandeln
@@ -352,14 +381,14 @@ func aufgabe08() {
 // Erst raten, dann ausführen.
 //
 // Fragen:
-// - Wie oft wird etwas ausgegeben?
-// - Welche Zahlen erscheinen?
+// - Wie oft wird etwas ausgegeben? => 5 mal
+// - Welche Zahlen erscheinen? => 0,1,2,3,4
 //
 // Probiert danach:
-// - i < 10
-// - i < 3
-// - i += 2 statt i++
-// - Start bei i := 1
+// - i < 10 => 0 bis 9
+// - i < 3  => 0 bis 2
+// - i += 2 statt i++ => jede zweite zahl
+// - Start bei i := 1 => 1 bis 5
 //
 // BONUS:
 // Lasst nur die Zahlen
@@ -367,7 +396,7 @@ func aufgabe08() {
 // ausgeben.
 
 func aufgabe09() {
-	for i := 0; i < 5; i++ {
+	for i := 10; i <= 50; i = i + 10 {
 		fmt.Println(i)
 	}
 }
@@ -405,7 +434,14 @@ func aufgabe09() {
 func aufgabe10() {
 	// TODO: Baut hier euer Programm.
 
-	fmt.Println("Code-Lego: Baut euer eigenes Programm!")
+	name := "Rieko"
+	alter := 19
+	fmt.Println("Hallo!")
+	fmt.Printf("Ich heiße %s.\n", name)
+	fmt.Printf("Ich bin %d Jahre alt.\n", alter)
+	fmt.Printf("In 10 Jahren bin ich %d.\n", alter+10)
+
+	//fmt.Println("Code-Lego: Baut euer eigenes Programm!")
 }
 
 // ============================================================
@@ -453,8 +489,231 @@ func aufgabe10() {
 // Wenn ihr schon Programmiererfahrung habt,
 // versucht eine eigene Funktion zu schreiben und aufzurufen.
 
+var charmap map[int8]string = map[int8]string{
+	0: "~", // water
+	1: "~", // ship
+	2: "x", // miss
+	3: "#", // hit
+}
+
+var ships [10]int8 = [10]int8{5, 4, 4, 3, 3, 3, 2, 2, 2, 2}
+
+const fieldsize int8 = 10
+
 func aufgabe11() {
 	fmt.Println("Freie Mini-Challenge!")
 
-	// TODO: Euer eigenes Programm beginnt hier.
+	var input_x int8 = 0
+	var input_y int8 = 0
+
+	var spielfeld [fieldsize][fieldsize]int8
+
+	populate(&spielfeld)
+
+	for isShipRemaining(&spielfeld) {
+
+		printfield(&spielfeld)
+
+		fmt.Print("Please input your next guess as two numbers (x and y) as two numbers seperated by a space:\n>>> ")
+		fmt.Scan(&input_x, &input_y)
+
+		fmt.Println("X:", input_x, "Y:", input_y)
+		fmt.Print("\n\n\n")
+
+		hit(&spielfeld, input_x, input_y)
+
+	}
+
+	fmt.Println("You Won.\nCongratulations!")
+	printfield(&spielfeld)
+
+}
+
+func populate(field *[fieldsize][fieldsize]int8) {
+	// Reset
+	for x := range fieldsize {
+		for y := range fieldsize {
+			field[x][y] = 0
+		}
+	}
+
+	placeShips(field, 0)
+
+}
+
+func printfield(field *[fieldsize][fieldsize]int8) {
+	fmt.Print(" #")
+	for x := range fieldsize {
+		fmt.Print(" ")
+		fmt.Print(x)
+	}
+	fmt.Print("\n")
+
+	for y := range fieldsize {
+		fmt.Printf(" %d", y)
+		for x := range fieldsize {
+			fmt.Printf(" %s", charmap[field[x][y]])
+		}
+		fmt.Print("\n")
+
+	}
+}
+
+func hit(field *[fieldsize][fieldsize]int8, x int8, y int8) {
+	switch field[x][y] {
+	case 0:
+		field[x][y] = 2
+	case 1:
+		field[x][y] = 3
+	}
+}
+
+func isShipRemaining(field *[fieldsize][fieldsize]int8) bool {
+	var shipRemaining bool = false
+	for y := range fieldsize {
+		for x := range fieldsize {
+			if field[x][y] == 1 {
+				shipRemaining = true
+			}
+		}
+	}
+	return shipRemaining
+}
+
+type ShipPos struct {
+	x   int8
+	y   int8
+	hor bool
+}
+
+func placeShips(field *[fieldsize][fieldsize]int8, index int) bool {
+
+	if index >= len(ships) {
+		return true
+	}
+
+	var size int8 = ships[index]
+	var x int8
+	var y int8
+
+	free_positions := make([]ShipPos, 0)
+	for y = range fieldsize {
+		for x = range fieldsize {
+			// fmt.Println("checking", x, y)
+			if doesShipFit(field, ShipPos{x, y, false}, size) {
+				free_positions = append(free_positions, ShipPos{x, y, false})
+				// fmt.Println("Horizontal fits")
+
+			}
+			if doesShipFit(field, ShipPos{x, y, true}, size) {
+				free_positions = append(free_positions, ShipPos{x, y, true})
+				// fmt.Println("Vertical fits")
+
+			}
+		}
+	}
+
+	// fmt.Println(free_positions)
+	// fmt.Println(len(free_positions))
+
+	var pos_index int
+	var my_pos ShipPos
+	var okay bool
+
+	for len(free_positions) != 0 {
+
+		pos_index = rand.Intn(len(free_positions))
+
+		my_pos = free_positions[pos_index]
+
+		free_positions = append(free_positions[:pos_index], free_positions[pos_index+1:]...)
+
+		drawShip(field, my_pos, size, true)
+
+		// printfield(field)
+		// fmt.Println()
+		// fmt.Scanln()
+
+		okay = placeShips(field, index+1)
+
+		if okay {
+			return true
+		}
+
+		drawShip(field, my_pos, size, false)
+
+	}
+
+	return false
+}
+
+func doesShipFit(field *[fieldsize][fieldsize]int8, pos ShipPos, size int8) bool {
+	var x int8
+	var y int8
+	var lower_x int8
+	var lower_y int8
+	var upper_x int8
+	var upper_y int8
+
+	if pos.hor {
+		// Check size
+		if pos.x+size > fieldsize {
+			return false
+		}
+
+		lower_x = max(pos.x-1, 0)
+		lower_y = max(pos.y-1, 0)
+		upper_x = min(pos.x+size, fieldsize-1) //not +1 cause size is one more than must be added to find end of ship
+		upper_y = min(pos.y+1, fieldsize-1)
+
+	} else {
+
+		// Check size
+		if pos.y+size > fieldsize {
+			return false
+		}
+
+		lower_x = max(pos.x-1, 0)
+		lower_y = max(pos.y-1, 0)
+		upper_x = min(pos.x+1, fieldsize-1)
+		upper_y = min(pos.y+size, fieldsize-1) //not +1 cause size is one more than must be added to find end of ship
+	}
+	// fmt.Println(lower_x, lower_y, upper_x, upper_y)
+
+	//check if space is free
+	for x = lower_x; x <= upper_x; x++ {
+		for y = lower_y; y <= upper_y; y++ {
+			if field[x][y] != 0 {
+				return false
+			}
+		}
+	}
+	return true
+}
+
+func drawShip(field *[fieldsize][fieldsize]int8, pos ShipPos, size int8, exist bool) {
+
+	var value int8
+
+	if exist {
+		value = 1
+	} else {
+		value = 0
+	}
+
+	// fmt.Println("Drawing Ship", pos, "with len", size)
+
+	if pos.hor {
+		for x := pos.x; x < pos.x+size; x++ {
+			field[x][pos.y] = value
+
+			// fmt.Println("Drawing at x", x)
+
+		}
+	} else {
+		for y := pos.y; y < pos.y+size; y++ {
+			// fmt.Println("Drawing at y", y)
+			field[pos.x][y] = value
+		}
+	}
 }
