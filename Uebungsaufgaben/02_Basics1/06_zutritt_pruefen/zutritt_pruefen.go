@@ -6,6 +6,6 @@ package zutritt_pruefen
 // Die Funktion wird automatisch durch die zugehörige Testdatei geprüft.
 
 func CanEnter(age int, hasID bool) bool {
-    // TODO: Kombiniere Alter und Ausweisstatus.
-    return false
+	// TODO: Kombiniere Alter und Ausweisstatus.
+	return age >= 18 && hasID
 }

@@ -6,6 +6,6 @@ package zwei_zahlen_addieren
 // Die Funktion wird automatisch durch die zugehörige Testdatei geprüft.
 
 func Add(a int, b int) int {
-    // TODO: Gib die Summe zurück.
-    return 0
+	// TODO: Gib die Summe zurück.
+	return a + b
 }

@@ -8,6 +8,6 @@ package nachricht_ausgeben
 import "fmt"
 
 func PrintMessage(message string) {
-    // TODO: Gib message aus.
-    _ = fmt.Println
+	// TODO: Gib message aus.
+	fmt.Println("Hallo Go")
 }

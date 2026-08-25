@@ -6,6 +6,6 @@ package zahlen_vergleichen
 // Die Funktion wird automatisch durch die zugehörige Testdatei geprüft.
 
 func IsGreater(a int, b int) bool {
-    // TODO: Vergleiche a und b.
-    return false
+	// TODO: Vergleiche a und b.
+	return a > b
 }
