@@ -6,6 +6,6 @@ package hello_world
 // Die Funktion wird automatisch durch die zugehörige Testdatei geprüft.
 
 func HelloWorld() string {
-    // TODO: Gib "Hello, World!" zurück.
-    return ""
+	// TODO: Gib "Hello, World!" zurück.
+	return "Hello, World!"
 }

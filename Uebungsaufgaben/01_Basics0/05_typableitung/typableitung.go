@@ -6,10 +6,10 @@ package typableitung
 // Die Funktion wird automatisch durch die zugehörige Testdatei geprüft.
 
 func CourseData() (string, int, bool) {
-    // TODO: Lege alle drei Variablen mit := an.
-    course := ""
-    participants := 0
-    active := false
+	// TODO: Lege alle drei Variablen mit := an.
+	course := "Go Grundlagen"
+	participants := 12
+	active := true
 
-    return course, participants, active
+	return course, participants, active
 }

@@ -8,7 +8,8 @@ package text_bearbeiten
 import "strings"
 
 func ChangeCase(text string) (string, string) {
-    // TODO: Erzeuge Groß- und Kleinschreibung.
-    _ = strings.ToUpper
-    return "", ""
+	// TODO: Erzeuge Groß- und Kleinschreibung.
+	var gross string = strings.ToUpper(text)
+	var klein string = strings.ToLower(text)
+	return gross, klein
 }
