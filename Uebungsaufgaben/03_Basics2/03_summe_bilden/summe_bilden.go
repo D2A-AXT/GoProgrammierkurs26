@@ -6,9 +6,13 @@ package summe_bilden
 // Die Funktion wird automatisch durch die zugehörige Testdatei geprüft.
 
 func SumTo(n int) int {
-    sum := 0
+	var sum int = 0
+	var i int
 
-    // TODO: Addiere 1 bis n.
+	// TODO: Addiere 1 bis n.
+	for i = range n + 1 {
+		sum += i
+	}
 
-    return sum
+	return sum
 }

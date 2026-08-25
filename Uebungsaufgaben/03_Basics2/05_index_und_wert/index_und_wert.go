@@ -8,10 +8,16 @@ package index_und_wert
 import "fmt"
 
 func LabelValues(values []string) []string {
-    var result []string
+	var result []string
+	var i int
+	var val string
 
-    // TODO: Erzeuge für jeden Eintrag "Index: Wert".
-    _ = fmt.Sprintf
+	// TODO: Erzeuge für jeden Eintrag "Index: Wert".
+	_ = fmt.Sprintf
 
-    return result
+	for i, val = range values {
+		result = append(result, fmt.Sprintf("%d: %s", i, val))
+	}
+
+	return result
 }
